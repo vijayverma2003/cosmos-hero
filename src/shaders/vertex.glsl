@@ -24,9 +24,7 @@ mat3 rotY(float a) {
         -s, 0, c);
 }
 
-
 void main() {
-
     vec3 newPosition = position * uScale;
 
     vec4 modelPosition = modelMatrix * vec4(newPosition, 1.0);
