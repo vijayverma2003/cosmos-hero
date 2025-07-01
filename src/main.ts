@@ -84,7 +84,6 @@ controls.enableDamping = true;
 // Animation Loop
 
 const animate = () => {
-  const delta = clock.getDelta();
   const elapsedTime = clock.getElapsedTime();
 
   controls.update();
@@ -161,8 +160,12 @@ window.addEventListener("resize", () => {
   sizes.width = window.innerWidth;
   sizes.height = window.innerHeight;
 
-  renderer.setSize(sizes.width, sizes.height);
-  camera.aspect = sizes.width / sizes.height;
+  canvas.width = sizes.width;
+  canvas.height = sizes.height;
 
+  renderer.setSize(sizes.width, sizes.height);
+  renderer.setPixelRatio(window.devicePixelRatio);
+
+  camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
 });
